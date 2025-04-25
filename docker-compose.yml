@@ -1,9 +1,14 @@
 version: '3'
 services:
+
   frontend:
     build: ./frontend
     ports:
-      - '3000:3000'
+      - '3000:3000' #exposed ports
+    volumes:
+      - ./frontend:/webapp
+      - /webapp/node_modules
+    
   api:
     build: ./api
     ports:
